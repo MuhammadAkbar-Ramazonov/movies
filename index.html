@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <title>Movies</title>
+</head>
+<body>
+  
+  <div class="container">
+    <h1 class="bg-success text-white text-center rounded-3">Movies</h1>
+    <ul class="row movies-list list-unstyled">
+      
+    </ul>
+  </div>
+  
+  <template class="movies-temp">
+    <!-- fragment -->
+    <li class="js-item mb-3 col-12 col-sm-6 col-md-4 col-lg-3 text d-flex align-items-stretch">
+      <div class="d-flex flex-column justify-content-between w-100 p-3 bg-success rounded-3 ">
+        <h4 class="movies-title text-center text-white mb-3"></h4>
+        <div class="text-white">Year:   <span class="movies-year text-dark mb-3 text-decoration-underline"></span></div>
+        <div class="text-white">Time:   <span class="movies-hour text-dark"></span> soat <span class="movies-minut text-dark"></span>minut</div>
+        <div class="text-white">Categories: <div class="movies-genres text-dark"></div></div>
+      </div>
+    </li>
+    <!-- fragment -->
+  </template>
+  
+  
+  <script src="./movies.js"></script>
+  <script src="./main.js"></script>
+</body>
+</html>
