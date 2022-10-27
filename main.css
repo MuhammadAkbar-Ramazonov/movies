@@ -1,0 +1,36 @@
+.movie-box{
+  min-height: 400px;
+}
+
+.rating-icon::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-image: url("./images/star.svg");
+  background-position: center;
+  background-size: 20px;
+  margin-right: 10px;
+}
+
+.time-icon::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-image: url("./images/time-fast.svg");
+  background-position: center;
+  background-size: 20px;
+  margin-right: 10px;
+}
+
+.year-icon::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-image: url("./images/calendar-clock.svg");
+  background-position: center;
+  background-size: 20px;
+  margin-right: 10px;
+}
+.form-input::placeholder{
+  color: white;
+}
