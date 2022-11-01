@@ -13,12 +13,36 @@
   <div class="container">
     <h1 class="bg-success text-white text-center rounded-3 py-3 mb-0">Movies</h1>
     <form class="mb-5 site-form mt-4" action="#" autocomplete="off" method="get">
-      <div class="d-flex">
-        <input class="form-input form-control bg-primary py-2 js-input" type="search" placeholder="Enter your search move" minlength="1" required aria-label="Enter your search move">
-        <select class="site-select bg-primary text-white w-25 mx-3 border-0 rounded-2 px-3" name="user_select">
-          <option value="All">All</option>
-        </select>
-        <button class="btn btn-primary py-2 rounded-2" type="submit">Search</button>
+      <div class="row ">
+        <div class="col-3">
+          <input class="w-100 h-100 px-2 form-input site-input border-0 rounded-3 bg-primary js-input" type="search" placeholder="Enter your search move" aria-label="Enter your search move">
+        </div>
+        <div class="col-1">
+          <select class="w-100 h-100 text-center site-select bg-primary text-white border-0 rounded-2" name="user_select">
+            <option value="All">All</option>
+          </select>
+        </div>
+        <div class="col-3">
+          <input class="w-100 h-100 px-2 form-search-start site-input border-0 rounded-3 bg-primary py-2" type="number" placeholder="Enter your search start number" aria-label="Enter your search start number">
+        </div>
+        
+        <div class="col-3">
+          <input class="w-100 h-100 px-2 form-search-end site-input border-0 rounded-3 bg-primary" type="number" placeholder="Enter your search end number" aria-label="Enter your search end number">
+        </div>
+        <div class="col-1">
+          <select class="w-100 h-100 text-center site-select-sort bg-primary text-white border-0 rounded-2" name="user_select_sort">
+            <option>All</option>
+            <option value="A-Z">A-Z</option>
+            <option value="Z-A">Z-A</option>
+            <option value="1-10">1-10</option>
+            <option value="10-1">10-1</option>
+            <option value="2000-2018">2000-2018</option>
+            <option value="2018-2000">2018-2000</option>
+          </select>
+        </div> 
+        <div class="col-1">
+          <button class="w-100 h-100 btn btn-primary rounded-2" type="submit">Search</button>
+        </div>
       </div>
     </form>
     <div class="row movies-list list-unstyled">
