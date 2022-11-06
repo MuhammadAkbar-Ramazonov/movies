@@ -1,3 +1,7 @@
+.movies-title{
+  text-transform: capitalize;
+}
+
 .rating-icon::before {
   content: "";
   width: 20px;

@@ -15,21 +15,21 @@
     <form class="mb-5 site-form mt-4" action="#" autocomplete="off" method="get">
       <div class="row ">
         <div class="col-3">
-          <input class="w-100 h-100 px-2 form-input site-input border-0 rounded-3 bg-primary js-input" type="search" placeholder="Enter your search move" aria-label="Enter your search move">
+          <input class="w-100 h-100 px-2 form-input site-input border-0 rounded-3 bg-primary js-input" type="search" placeholder="Write search move ..." aria-label="Enter your search move">
         </div>
-        <div class="col-1">
+        <div class="col-2">
           <select class="w-100 h-100 text-center site-select bg-primary text-white border-0 rounded-2" name="user_select">
             <option value="All">All</option>
           </select>
         </div>
-        <div class="col-3">
-          <input class="w-100 h-100 px-2 form-search-start site-input border-0 rounded-3 bg-primary py-2" type="number" placeholder="Enter your search start number" aria-label="Enter your search start number">
+        <div class="col-2">
+          <input class="w-100 h-100 px-2 form-search-start site-input border-0 rounded-3 bg-primary py-2" type="number" placeholder="Write search start num ..." aria-label="Enter your search start number">
         </div>
         
-        <div class="col-3">
-          <input class="w-100 h-100 px-2 form-search-end site-input border-0 rounded-3 bg-primary" type="number" placeholder="Enter your search end number" aria-label="Enter your search end number">
+        <div class="col-2">
+          <input class="w-100 h-100 px-2 form-search-end site-input border-0 rounded-3 bg-primary" type="number" placeholder="Write search end num ..." aria-label="Enter your search end number">
         </div>
-        <div class="col-1">
+        <div class="col-2">
           <select class="w-100 h-100 text-center site-select-sort bg-primary text-white border-0 rounded-2" name="user_select_sort">
             <option>All</option>
             <option value="A-Z">A-Z</option>
@@ -46,7 +46,12 @@
       </div>
     </form>
     <div class="row movies-list list-unstyled">
-      <h2 class="text-white">Moves is caming ...</h2>
+
+      <img src="./images/loader.svg"
+      width="100"
+      height="100"
+      alt="Loading">
+
     </div>
   </div>
   
@@ -85,17 +90,20 @@
     <!-- fragment -->
     <div class="js-item mb-3 col-12 col-sm-6 col-md-4 col-lg-3 text d-flex align-items-stretch">
       <div class="d-flex flex-column justify-content-between w-100 p-3 bg-success rounded-3 ">
-        <img class="movie-img mx-auto img-fluid" src="https://via.placeholder.com/150" alt="">
+        <img class="movies-img mx-auto img-fluid" src="https://via.placeholder.com/150" alt="">
         <h4 class="movies-title text-center text-white mb-3"></h4>
         <div class="d-flex justify-content-between my-2">
-          <span class="movie-rating text-white rating-icon d-inline-flex align-items-center">2122</span>
-          <span class="movie-year text-white year-icon d-inline-flex align-items-center">2010</span>
-          <time class="movie-runtime text-white time-icon d-inline-flex align-items-center">200</time>
+          <span class="movies-rating text-white rating-icon d-inline-flex align-items-center">2122</span>
+          <span class="movies-year text-white year-icon d-inline-flex align-items-center">2010</span>
+          <time class="movies-runtime text-white time-icon d-inline-flex align-items-center">200</time>
         </div>
-        <div class="movie-categories mb-2 text-white">
+        <div class="movies-categories mb-2 text-white">
           
         </div>
-        <button class="movie-btn btn btn-primary " type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">More info</button>
+        <div>
+          <button class="movies-btn btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">More info</button>
+          <button class="save-btn btn btn-primary" type="button">Bookmark</button>
+        </div>
         
       </div>
     </div>
