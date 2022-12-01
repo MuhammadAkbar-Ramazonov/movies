@@ -1,7 +1,25 @@
 .movies-title{
   text-transform: capitalize;
 }
-
+/* .bookmark-body {
+} */
+.bookmark-hero {
+  overflow: hidden;
+  padding-right: 15px;
+  opacity: 0.6;
+}
+.book-list{
+  width: 300px;
+  height: 100%;
+  border-left: 2px solid black;
+  background: #fff;
+}
+.bookmark-wrapper{
+  height: 100%;
+  z-index: 3;
+  top: 8px;
+  right: calc(50% - 923px);
+}
 .rating-icon::before {
   content: "";
   width: 20px;

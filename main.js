@@ -1,5 +1,7 @@
 // Variables
+const elBody = document.querySelector("body");
 const elForm = document.querySelector(".site-form");
+const elHero = document.querySelector(".hero");
 const elFormInput = document.querySelector(".js-input");
 const elSelect = document.querySelector(".site-select");
 
@@ -24,7 +26,61 @@ const modalCategories = elModal.querySelector(".modal-categories");
 const modalSummary = elModal.querySelector(".modal-summary");
 const modalLink = elModal.querySelector(".modal-imdb-link");
 
+// bookmark
+const bookmarkBtn =  document.querySelector(".bookmark-open");
+const bookmarkList =  document.querySelector(".book-list");
+const bookmarkSaveBtn =  document.querySelector(".save-btn");
+const bookmarkArr = [];
 
+AOS.init();
+
+function bookmarkFunc (arr, element) {
+  console.log(arr)
+  element.innerHTML = "";
+  arr.forEach(item => {
+    let elItem = document.createElement("li");
+    let elCard = 
+    `
+    <div class="card">
+    <img class="card-img" src="http://i3.ytimg.com/vi/${item.ytid}/mqdefault.jpg">
+    <h2 class="card-title">Name: ${item.Title}</h2>
+    <button class="delete-btn" data-id=${item.imdb_id}>delete</button>
+    </div>
+    `
+    elItem.innerHTML = elCard;
+    element.appendChild(elItem);
+    console.log(elItem);
+  })
+}
+
+bookmarkBtn.addEventListener("click", evt => {
+  evt.preventDefault(); 
+  bookmarkList.classList.toggle("d-none");
+  bookmarkList.classList.length < 3 ? bookmarkBtn.textContent = ">" : bookmarkBtn.textContent = "<";
+  elHero.classList.toggle("bookmark-hero");
+  elBody.classList.toggle("bookmark-body")
+});
+
+elMoviesList.addEventListener("click", function(evt){
+  if (evt.target.matches(".save-btn")) {
+    let btnId = evt.target.dataset.id;
+    let itemFind = movies.find(item => item.imdb_id == btnId);
+    if (!bookmarkArr.includes(itemFind)) {
+      bookmarkArr.push(itemFind);
+      console.log(itemFind)
+      bookmarkFunc(bookmarkArr, bookmarkList)
+    }
+  }
+})
+
+bookmarkList.addEventListener("click", function(evt){
+  if (evt.target.matches(".delete-btn")) {
+    let btnId = evt.target.dataset.id;
+    let itemFind = bookmarkArr.findIndex(item => item.imdb_id == btnId);
+    bookmarkArr.splice(itemFind, 1);
+    bookmarkFunc(bookmarkArr, bookmarkList);
+  }
+})
 
 function sortFunc(arr, select){
   if(select == "A-Z"){
@@ -75,6 +131,17 @@ function getDuration (time){
   return `${hours} hrs ${minuts} min  `
 }
 
+const categorieSum = [];
+const result = [];
+
+function benom(arr) {
+  const set = new Set(arr)
+  for (const iterator of set) {
+    result.push(iterator)
+  }
+}
+
+
 function renderMovies(kino, regex = ""){
   elMoviesList.innerHTML = "";
   
@@ -82,16 +149,11 @@ function renderMovies(kino, regex = ""){
   const MoviesFragment = document.createDocumentFragment();
   
   kino.forEach(item => {
-    const elCloneMovie = elMoviesTemplate.cloneNode(true);
-    item.Categories.split("|").forEach(function(element){
-      if(!categorySum.includes(element)){
-        categorySum.push(element);
-        const elOption = document.createElement("option");
-        elOption.textContent = element;
-        elSelect.appendChild(elOption);
-      } 
-      
-    })
+    const elCloneMovie = elMoviesTemplate.cloneNode(true); 
+    
+    categorieSum.push(item.Categories.split("|"))
+    
+    
     
     elCloneMovie.querySelector(".movies-img").src = `https://i3.ytimg.com/vi/${item.ytid}/mqdefault.jpg `;
     if(regex.source != "(?:)" && regex){
@@ -108,8 +170,14 @@ function renderMovies(kino, regex = ""){
     MoviesFragment.appendChild(elCloneMovie);
     
   });
-  elMoviesList.appendChild(MoviesFragment)
+  elMoviesList.appendChild(MoviesFragment);
   
+  benom(categorieSum.join(",").split(","))
+  result.forEach(element => {
+    const elOption = document.createElement("option");
+    elOption.textContent = element;
+    elSelect.appendChild(elOption);
+  });
 }
 
 function renderModalInfo(topilganKino){
